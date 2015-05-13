@@ -1,11 +1,38 @@
-﻿<Properties StartupItem="XFormsRadioButton/XFormsRadioButton.Android/XFormsRadioButton.Android.csproj">
+﻿<Properties StartupItem="XFormsRadioButton/XFormsRadioButton.iOS/XFormsRadioButton.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="Android.192.168.99.100:5555" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="XFormsRadioButton/XFormsRadioButton/ViewModel/RadioGroupDemoViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XFormsRadioButton/XFormsRadioButton/Mock/Factories/RadioItemFactory.cs">
     <Files>
-      <File FileName="XFormsRadioButton/XFormsRadioButton/Pages/RadioGroupDemo.cs" Line="27" Column="32" />
+      <File FileName="XFormsRadioButton/XFormsRadioButton/Pages/RadioGroupDemo.cs" Line="32" Column="25" />
       <File FileName="XFormsRadioButton/XFormsRadioButton/App.cs" Line="24" Column="43" />
-      <File FileName="XFormsRadioButton/XFormsRadioButton/ViewModel/RadioGroupDemoViewModel.cs" Line="9" Column="1" />
+      <File FileName="XFormsRadioButton/XFormsRadioButton/ViewModel/RadioGroupDemoViewModel.cs" Line="24" Column="8" />
+      <File FileName="XFormsRadioButton/XFormsRadioButton/Helper/INotifyPropertyChangedExtentions.cs" Line="14" Column="9" />
+      <File FileName="XFormsRadioButton/XFormsRadioButton/CustomControls/CustomRadioButton.cs" Line="26" Column="60" />
+      <File FileName="XFormsRadioButton/XFormsRadioButton/Mock/Factories/RadioItemFactory.cs" Line="7" Column="15" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="XFormsRadioButton" expanded="True">
+            <Node name="CrossPlatformRadioButtons" expanded="True">
+              <Node name="Helper" expanded="True" />
+              <Node name="Mock" expanded="True">
+                <Node name="Factories" expanded="True">
+                  <Node name="RadioItemFactory.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Pages" expanded="True" />
+              <Node name="ViewModel" expanded="True" />
+            </Node>
+            <Node name="XFormsRadioButton.iOS" expanded="True">
+              <Node name="Packages" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

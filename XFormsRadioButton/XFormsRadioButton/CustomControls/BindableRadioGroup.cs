@@ -48,7 +48,9 @@ namespace XFormsRadioButton.CustomControls
         }
 
 
-        private static void OnItemsSourceChanged(BindableObject bindable, IEnumerable oldvalue, IEnumerable newvalue)
+        private static void OnItemsSourceChanged(BindableObject bindable,
+                        IEnumerable oldvalue,
+                        IEnumerable newvalue)
         {
             var radButtons = bindable as BindableRadioGroup;
             radButtons.rads.Clear();

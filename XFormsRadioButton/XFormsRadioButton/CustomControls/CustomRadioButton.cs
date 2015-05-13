@@ -9,6 +9,7 @@ namespace XFormsRadioButton.CustomControls
 {
     public class CustomRadioButton : View
     {
+
         public static readonly BindableProperty CheckedProperty =
                    BindableProperty.Create<CustomRadioButton, bool>(
                        p => p.Checked, false);
@@ -82,8 +83,6 @@ namespace XFormsRadioButton.CustomControls
                 this.SetValue(TextColorProperty, value);
             }
         }
-        public int Id { get; set; }
+        public new int Id { get; set; }
     }
-
-
 }

@@ -9,28 +9,25 @@ using Xamarin.Forms;
 
 namespace XFormsRadioButton.ViewModel
 {
-    public class RadioGroupDemoViewModel : INotifyPropertyChanged
+    public class RadioGroupViewModel<T> : INotifyPropertyChanged
     {
-        private List<string> itemSource = new List<String>();
+        private readonly List<T> _itemSource;
+        private readonly Func<T, String> _displayFunc;
         private int selectedIndex;
 
-        //Will be accessed by external classes
+        //Implement INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public RadioGroupDemoViewModel(List <String> source)
+        public RadioGroupViewModel(List<T> source, Func<T, String> displayFunc)
         {
             SelectedIndex = -1;
-            ItemSource = source;
+            _itemSource = source;
+            _displayFunc = displayFunc;
         }
 
-        public List<string> ItemSource
+        public IEnumerable<String> ItemSource
         {
-            get { return itemSource; }
-            private set
-            {
-                itemSource = value;
-                PropertyChanged.Handle(this,"ItemSource");
-            }
+            get { return _itemSource.Select(_displayFunc); }
         }
 
         public int SelectedIndex

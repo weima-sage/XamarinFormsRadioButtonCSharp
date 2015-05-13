@@ -14,7 +14,8 @@ namespace XFormsRadioButton.Pages
 
         public RadioGroupDemo()
         {
-            BindingContext = new RadioGroupDemoViewModel(RadioItemsFactory.GetRadioItems());
+            BindingContext = new RadioGroupViewModel<String>(
+                RadioItemsFactory.GetRadioItems(), t => t);
             txtSelected = GetLabel("Selected Item is");
             radioGroup = GetRadioGroup();
 
