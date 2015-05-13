@@ -11,56 +11,39 @@ namespace XFormsRadioButton.ViewModel
 {
     public class RadioGroupDemoViewModel : INotifyPropertyChanged
     {
-        public RadioGroupDemoViewModel()
+        private List<string> itemSource = new List<String>();
+        private int selectedIndex;
+
+        //Will be accessed by external classes
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public RadioGroupDemoViewModel(List <String> source)
         {
-            myList = new Dictionary<int, string>();
-            selectedIndex = -1;
-			LoadData ();
+            SelectedIndex = -1;
+            ItemSource = source;
         }
 
-
-        private void LoadData()
+        public List<string> ItemSource
         {
-
-            for (int i = 0; i < 3; i++)
-			{
-                MyList.Add(i, "Item " + i); 
-			}
-
-            
-        }
-
-
-        private Dictionary<int, string> myList;
-        public Dictionary<int, string> MyList
-        {
-            get { return myList; }
-            set
+            get { return itemSource; }
+            private set
             {
-                myList = value;
-                NotifyPropertyChanged("MyList");
+                itemSource = value;
+                PropertyChanged.Handle(this,"ItemSource");
             }
         }
 
-        private int selectedIndex;
         public int SelectedIndex
         {
             get { return selectedIndex; }
             set
             {
-                if (value == selectedIndex) return;
+                if (value == selectedIndex)
+                {
+                    return;
+                }
                 selectedIndex = value;
-                NotifyPropertyChanged("SelectedIndex");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(String propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (null != handler)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged.Handle(this,"SelectedIndex");
             }
         }
     }

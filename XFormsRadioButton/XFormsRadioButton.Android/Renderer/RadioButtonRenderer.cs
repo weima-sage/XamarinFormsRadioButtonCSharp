@@ -18,9 +18,6 @@ using Xamarin.Forms.Platform.Android;
 [assembly: ExportRenderer(typeof(CustomRadioButton), typeof(RadioButtonRenderer))]
 namespace XFormsRadioButton.Android.Renderer
 {
-
-   //  using NativeRadioButton = RadioButton;
-
     public class RadioButtonRenderer: ViewRenderer<CustomRadioButton, RadioButton>
     {
         protected override void OnElementChanged(ElementChangedEventArgs<CustomRadioButton> e)
@@ -29,14 +26,13 @@ namespace XFormsRadioButton.Android.Renderer
 
             if(e.OldElement != null)
             {
-                e.OldElement.PropertyChanged += ElementOnPropertyChanged;  
+                e.OldElement.PropertyChanged += ElementOnPropertyChanged;
             }
 
             if(this.Control == null)
             {
                 var radButton = new RadioButton(this.Context);
                 radButton.CheckedChange += radButton_CheckedChange;
-              
                 this.SetNativeControl(radButton);
             }
 
@@ -51,7 +47,7 @@ namespace XFormsRadioButton.Android.Renderer
             this.Element.Checked = e.IsChecked;
         }
 
-      
+
 
         void ElementOnPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {

@@ -3,6 +3,7 @@ using System;
 using Xamarin.Forms;
 using XFormsRadioButton.ViewModel;
 using XFormsRadioButton.CustomControls;
+using XFormsRadioButton.Mock.Factories;
 
 namespace XFormsRadioButton.Pages
 {
@@ -13,51 +14,38 @@ namespace XFormsRadioButton.Pages
 
         public RadioGroupDemo()
         {
-            BindingContext = new RadioGroupDemoViewModel();
+            BindingContext = new RadioGroupDemoViewModel(RadioItemsFactory.GetRadioItems());
             txtSelected = GetLabel("Selected Item is");
             radioGroup = GetRadioGroup();
 
             Content = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.Start,
+                Children =
                 {
-                    VerticalOptions = LayoutOptions.Start,
-                    Children =
+                    GetLabel("Radio Group Demo"),
+                    radioGroup,
+                    txtSelected,
+                    new StackLayout
+                    {
+                        Children =
                         {
-                            GetLabel("Hello"),
-                            radioGroup,
-                            txtSelected,
-                            new StackLayout
-                            {
-                                Children =
-                                    {
-                                        GetLabel("Selected The Index"),
-                                        GetEntry()
-                                    }
-                                }
+                            GetLabel("Selected The Index"),
+                            GetEntry()
                         }
-                    };
+                    }
+                }
+            };
             radioGroup.CheckedChanged += SelectionChangedEventHandler;
         }
-
-        //event handler
-        void SelectionChangedEventHandler(object sender, int e)
-        {
-            var radio = sender as CustomRadioButton;
-            if(radio == null || radio.Id == -1)
-            {
-                return;
-            }
-            txtSelected.Text = radio.Text;
-        }
-
 
         private Entry GetEntry()
         {
             Entry returnValue = new Entry
-                {
-                    HorizontalOptions = LayoutOptions.Center,
-                    VerticalOptions = LayoutOptions.Center,
-                };
-            var selectedIndexBinding = new Binding("SelectedIndex");
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+            };
             returnValue.SetBinding(Entry.TextProperty, "SelectedIndex");
             return returnValue;
         }
@@ -73,12 +61,24 @@ namespace XFormsRadioButton.Pages
 
         private BindableRadioGroup GetRadioGroup()
         {
-            var rads = new BindableRadioGroup();
-            var selectedIndexBinding = new Binding("SelectedIndex");
-            rads.SetBinding(BindableRadioGroup.ItemsSourceProperty, "MyList.Values");
-            rads.SetBinding(BindableRadioGroup.SelectedIndexProperty, "SelectedIndex");
-            return rads;
+            var radioGroup = new BindableRadioGroup();
+            radioGroup.SetBinding(BindableRadioGroup.ItemsSourceProperty, "ItemSource");
+            radioGroup.SetBinding(BindableRadioGroup.SelectedIndexProperty, "SelectedIndex");
+            return radioGroup;
         }
+
+
+        //event handler
+        void SelectionChangedEventHandler(object sender, int e)
+        {
+            var radio = sender as CustomRadioButton;
+            if(radio == null || radio.Id == -1)
+            {
+                return;
+            }
+            txtSelected.Text = radio.Text;
+        }
+
     }
 
 }

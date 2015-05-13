@@ -29,7 +29,7 @@ namespace XFormsRadioButton.CustomControls
         /// <summary>
         /// Identifies the TextColor bindable property.
         /// </summary>
-        /// 
+        ///
         /// <remarks/>
         public static readonly BindableProperty TextColorProperty =
             BindableProperty.Create<CustomRadioButton, Color>(
@@ -52,7 +52,6 @@ namespace XFormsRadioButton.CustomControls
                 var eventHandler = this.CheckedChanged;
                 if (eventHandler != null)
                 {
-                   
                     eventHandler.Invoke(this, value);
                 }
             }
@@ -83,12 +82,8 @@ namespace XFormsRadioButton.CustomControls
                 this.SetValue(TextColorProperty, value);
             }
         }
-
         public int Id { get; set; }
-   
-        
-       
     }
 
-  
+
 }

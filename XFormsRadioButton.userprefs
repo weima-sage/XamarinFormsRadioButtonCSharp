@@ -1,13 +1,10 @@
 ﻿<Properties StartupItem="XFormsRadioButton/XFormsRadioButton.Android/XFormsRadioButton.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.MonoForAndroid_API_15" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="XFormsRadioButton\XFormsRadioButton\Pages\RadioGroupDemo.xaml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="Android.192.168.99.100:5555" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="XFormsRadioButton/XFormsRadioButton/ViewModel/RadioGroupDemoViewModel.cs">
     <Files>
-      <File FileName="XFormsRadioButton\XFormsRadioButton\ViewModel\RadioGroupDemoViewModel.cs" Line="1" Column="1" />
-      <File FileName="XFormsRadioButton\XFormsRadioButton\Pages\RadioGroupDemo.xaml" Line="1" Column="1" />
-      <File FileName="XFormsRadioButton\XFormsRadioButton\Pages\RadioGroupDemo.xaml.cs" Line="1" Column="1" />
-      <File FileName="XFormsRadioButton\XFormsRadioButton\CustomControls\BindableRadioGroup.cs" Line="1" Column="1" />
-      <File FileName="XFormsRadioButton\XFormsRadioButton\CustomControls\CustomRadioButton.cs" Line="1" Column="1" />
-      <File FileName="XFormsRadioButton\XFormsRadioButton.Android\Renderer\RadioButtonRenderer.cs" Line="1" Column="1" />
+      <File FileName="XFormsRadioButton/XFormsRadioButton/Pages/RadioGroupDemo.cs" Line="27" Column="32" />
+      <File FileName="XFormsRadioButton/XFormsRadioButton/App.cs" Line="24" Column="43" />
+      <File FileName="XFormsRadioButton/XFormsRadioButton/ViewModel/RadioGroupDemoViewModel.cs" Line="9" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

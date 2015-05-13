@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFormsRadioButton", "XFormsRadioButton\XFormsRadioButton\XFormsRadioButton.csproj", "{803F680E-E73C-475D-A79E-7D83CE9C7950}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossPlatformRadioButtons", "XFormsRadioButton\XFormsRadioButton\CrossPlatformRadioButtons.csproj", "{803F680E-E73C-475D-A79E-7D83CE9C7950}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFormsRadioButton.iOS", "XFormsRadioButton\XFormsRadioButton.iOS\XFormsRadioButton.iOS.csproj", "{547F4EC1-223B-4D8B-A6A1-3A3F044C5176}"
 EndProject

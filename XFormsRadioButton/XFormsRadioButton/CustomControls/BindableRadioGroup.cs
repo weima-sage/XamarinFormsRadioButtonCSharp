@@ -12,61 +12,58 @@ namespace XFormsRadioButton.CustomControls
 {
     public class BindableRadioGroup: StackLayout
     {
-       
-        public List<CustomRadioButton> rads;
+        private List<CustomRadioButton> rads;
+        public event EventHandler<int> CheckedChanged;
+
+        public static BindableProperty ItemsSourceProperty =
+            BindableProperty.Create<BindableRadioGroup, IEnumerable>(
+              o => o.ItemsSource,
+              default(IEnumerable),
+              propertyChanged: OnItemsSourceChanged
+            );
+
+        public static BindableProperty SelectedIndexProperty =
+            BindableProperty.Create<BindableRadioGroup, int>(
+              o => o.SelectedIndex,
+              default(int),
+              BindingMode.TwoWay,
+              propertyChanged: OnSelectedIndexChanged
+        );
 
         public BindableRadioGroup()
         {
-
             rads = new List<CustomRadioButton>();
         }
 
-
-
-        public static BindableProperty ItemsSourceProperty =
-            BindableProperty.Create<BindableRadioGroup, IEnumerable>(o => o.ItemsSource, default(IEnumerable), propertyChanged: OnItemsSourceChanged);
-
-     
-        public static BindableProperty SelectedIndexProperty =
-            BindableProperty.Create<BindableRadioGroup, int>(o => o.SelectedIndex, default(int), BindingMode.TwoWay, propertyChanged:OnSelectedIndexChanged );
-
-        public IEnumerable ItemsSource
+        private IEnumerable ItemsSource
         {
             get { return (IEnumerable)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
-       
         public int SelectedIndex
         {
             get { return (int)GetValue(SelectedIndexProperty); }
             set { SetValue(SelectedIndexProperty, value); }
         }
-      
-        public event EventHandler<int> CheckedChanged;
-
 
 
         private static void OnItemsSourceChanged(BindableObject bindable, IEnumerable oldvalue, IEnumerable newvalue)
         {
             var radButtons = bindable as BindableRadioGroup;
-           
             radButtons.rads.Clear();
             radButtons.Children.Clear();
             if (newvalue != null)
             {
-              
+
                 int radIndex = 0;
                 foreach (var item in newvalue)
                 {
                     var rad = new CustomRadioButton();
                     rad.Text = item.ToString();
-                    rad.Id = radIndex;  
-                   
+                    rad.Id = radIndex;
                     rad.CheckedChanged += radButtons.OnCheckedChanged;
-                  
                     radButtons.rads.Add(rad);
-                                    
                     radButtons.Children.Add(rad);
                     radIndex++;
                 }
@@ -75,9 +72,10 @@ namespace XFormsRadioButton.CustomControls
 
         private void OnCheckedChanged(object sender, EventArgs<bool> e)
         {
-           
-           if (e.Value == false) return;
-
+            if (e.Value == false)
+            {
+              return;
+            }
             var selectedRad = sender as CustomRadioButton;
 
             foreach (var rad in rads)
@@ -86,15 +84,11 @@ namespace XFormsRadioButton.CustomControls
                 {
                     rad.Checked = false;
                 }
-                else
+                else if(CheckedChanged != null)
                 {
-					if(CheckedChanged != null)
-                    	CheckedChanged.Invoke(sender, rad.Id); 
-                   
+                    CheckedChanged.Invoke(sender, rad.Id);
                 }
-                
             }
-
         }
 
         private static void OnSelectedIndexChanged(BindableObject bindable, int oldvalue, int newvalue)
@@ -102,19 +96,13 @@ namespace XFormsRadioButton.CustomControls
             if (newvalue == -1) return;
 
             var bindableRadioGroup = bindable as BindableRadioGroup;
-
-
             foreach (var rad in bindableRadioGroup.rads)
             {
                 if (rad.Id == bindableRadioGroup.SelectedIndex)
                 {
                     rad.Checked = true;
                 }
-               
             }
-
-
         }
-    
     }
 }

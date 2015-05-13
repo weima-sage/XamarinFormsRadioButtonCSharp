@@ -90,9 +90,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XFormsRadioButton\XFormsRadioButton.csproj">
-      <Name>XFormsRadioButton</Name>
+    <ProjectReference Include="..\XFormsRadioButton\CrossPlatformRadioButtons.csproj">
       <Project>{803F680E-E73C-475D-A79E-7D83CE9C7950}</Project>
+      <Name>CrossPlatformRadioButtons</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
